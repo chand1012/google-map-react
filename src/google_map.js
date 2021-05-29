@@ -148,6 +148,9 @@ class GoogleMap extends Component {
 
   static defaultProps = {
     distanceToMouse(pt, mousePos /* , markerProps */) {
+      if (pt === undefined || mousePos === undefined) {
+        return 0;
+      }
       return Math.sqrt(
         (pt.x - mousePos.x) * (pt.x - mousePos.x) +
           (pt.y - mousePos.y) * (pt.y - mousePos.y)
